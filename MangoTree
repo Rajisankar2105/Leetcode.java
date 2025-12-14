@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class Mango{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int row=sc.nextInt();
+	    int col=sc.nextInt();
+	    int tno=sc.nextInt();
+	    int cols=(tno-1)/row+1;
+	    if(col==2||cols==4)
+{
+    System.out.println("Mango");
+	}else{
+	    System.out.println("Not");
+	}
+}
+}
