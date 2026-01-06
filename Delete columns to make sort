@@ -1,0 +1,20 @@
+class Solution {
+    public int minDeletionSize(String[] strs) {
+       int res=0;
+       for(int i=0;i<strs[0].length();i++){
+        res +=checkIfSorted(strs,i);
+       } 
+       return res;
+    }
+    public static int checkIfSorted(String [] strs,int j){
+        int c=0;
+        for(int i =1;i<strs.length;i++){
+            char ch1=strs[i-1].charAt(j);
+            char ch2=strs[i].charAt((j));
+            if(ch1>ch2){
+                return 1;
+            }
+        }
+        return 0;
+    }
+}
