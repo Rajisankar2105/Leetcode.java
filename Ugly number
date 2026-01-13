@@ -1,0 +1,33 @@
+class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        int k=primes.length;
+        int[]ugly=new int[n];
+        int[]index=new int[k];
+        long[]nextVal=new long[k];
+        for(int j=0;j<k;j++){
+            nextVal[j]=primes[j];
+        }
+        ugly[0]=1;
+        for(int i=1;i<n;i++){
+            long nextUglyLong=Long.MAX_VALUE;
+            for(int j=0;j<k;j++){
+                if(nextVal[j]<nextUglyLong) nextUglyLong=nextVal[j];
+            }
+            ugly[i]=(int)nextUglyLong;
+        for(int j=0;j<k;j++){
+            if(nextVal[j]==nextUglyLong){
+                index[j]++;
+                nextVal[j]=(long)primes[j]*(long)ugly[index[j]];
+            }
+
+        }
+        }
+    return ugly[n-1];
+}
+public static void main(String[]args){
+    Solution sol=new Solution();
+    int n=12;
+    int[]primes={2,7,13,19};
+    System.out.println(sol.nthSuperUglyNumber(n,primes));
+}
+}
